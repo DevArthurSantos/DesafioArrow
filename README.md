@@ -43,13 +43,13 @@
 
 4. Altere as variáveis do novo .env para os valores apropriados.
 
-5. Instale as dependências:
-   npm install
+5. Instale as dependências: `npm install`
 
-6. Execute o projeto:
-   npm run dev
-  
-7. Acesse http://localhost:3000/docs para ver os endpoints.
+6. Execute o projeto: `npm run dev`
+
+7. Para utilizar o docker: `docker compose up --build -d`
+
+8. Acesse http://localhost:3000/docs para ver os endpoints.
 
 ## 🎉 Reconhecimentos
 
