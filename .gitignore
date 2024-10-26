@@ -35,3 +35,4 @@ yarn-error.*
 .vercel
 /yarn.lock
 /node_modules
+.env.prod
