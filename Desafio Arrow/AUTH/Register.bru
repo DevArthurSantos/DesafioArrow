@@ -1,0 +1,21 @@
+meta {
+  name: Register
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:3000/auth/signup
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "username": "Teste",
+    "email": "teste@teste.com",
+    "CPF": "123.456.789-12",
+    "TEL": "00000000000",
+    "password": "senha"
+  }
+}

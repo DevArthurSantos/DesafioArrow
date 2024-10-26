@@ -1,0 +1,13 @@
+**/node_modules/*
+**/out/*
+README.md
+_configs_files
+.expo
+.expo-shared
+babel.config.js
+package.json
+tsconfig.json
+app.json
+src/locales/*.json
+tailwind.config.js
+src/app/app.service.ts

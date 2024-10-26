@@ -1,0 +1,18 @@
+meta {
+  name: active
+  type: http
+  seq: 3
+}
+
+patch {
+  url: http://localhost:3000/auth/active/teste@teste.com/36766
+  body: none
+  auth: none
+}
+
+body:json {
+  {
+    "email": "teste@teste.com",
+    "password": "senha"
+  }
+}
