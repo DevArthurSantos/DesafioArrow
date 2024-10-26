@@ -1,0 +1,20 @@
+meta {
+  name: by-date
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:3000/api/post/by-date?startDate=2024-10-26T15:43:18.000Z&endDate=2024-10-31T15:43:18.000Z
+  body: none
+  auth: none
+}
+
+query {
+  startDate: 2024-10-26T15:43:18.000Z
+  endDate: 2024-10-31T15:43:18.000Z
+}
+
+headers {
+  Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlQHRlc3RlLmNvbSIsIm5hbWUiOiJUZXN0ZSIsInVzZXJfaWQiOiI2NzFkNTkzODFhZGEwODk1N2VmNDdjYTAiLCJpYXQiOjE3Mjk5NzY2NDcsImV4cCI6MTczMDA2MzA0N30.QDuX7-_Jn0h8jUC-8pvIhseKI3KIDVAhhtGlYUHYVDs
+}
