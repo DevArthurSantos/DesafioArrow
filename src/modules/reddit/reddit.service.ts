@@ -8,6 +8,7 @@ import { AxiosService } from '../axios/axios.service';
 import { type PostDocument, PostEntity } from './schema/post.schema';
 
 import { Model } from 'mongoose';
+import { envs } from '@app/core/configuration/envs';
 
 @Injectable()
 export class RedditService {
@@ -17,7 +18,7 @@ export class RedditService {
     private readonly axiosService: AxiosService
   ) {}
 
-  @Cron('04 16 * * *', { timeZone: 'America/Sao_Paulo' })
+  @Cron(envs.CRON_EXPRESSION || '0 0 * * *', { timeZone: 'America/Sao_Paulo' })
   async handleCron() {
     await this.fetchAndStoreHotPosts();
   }
