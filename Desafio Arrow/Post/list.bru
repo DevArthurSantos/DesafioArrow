@@ -5,11 +5,16 @@ meta {
 }
 
 get {
-  url: http://localhost:3000/api/post
+  url: http://localhost:3000/api/post?page=1&limit=10
   body: none
   auth: none
 }
 
+query {
+  page: 1
+  limit: 10
+}
+
 headers {
-  Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlQHRlc3RlLmNvbSIsIm5hbWUiOiJUZXN0ZSIsInVzZXJfaWQiOiI2NzFkNTkzODFhZGEwODk1N2VmNDdjYTAiLCJpYXQiOjE3Mjk5NzY2NDcsImV4cCI6MTczMDA2MzA0N30.QDuX7-_Jn0h8jUC-8pvIhseKI3KIDVAhhtGlYUHYVDs
+  Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlQHRlc3RlLmNvbSIsIm5hbWUiOiJUZXN0ZSIsInVzZXJfaWQiOiI2NzFkM2QzOTYzNDJhMWQ0NjZkOTg1ZTMiLCJpYXQiOjE3MzAwNDM0MjMsImV4cCI6MTczMDEyOTgyM30.wyVxJl5en0DjiYAwHzwD3JneIzu0tGwix7Nyv9zc7vw
 }

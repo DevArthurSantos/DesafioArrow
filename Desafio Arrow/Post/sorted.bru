@@ -5,7 +5,7 @@ meta {
 }
 
 get {
-  url: http://localhost:3000/api/post/sorted?startDate=2024-08-26T15:43:18.000Z&endDate=2024-10-31T15:43:18.000Z&order=num_comments
+  url: http://localhost:3000/api/post/sorted?startDate=2024-08-26T15:43:18.000Z&endDate=2024-10-31T15:43:18.000Z&order=num_comments&page=1&limit=10
   body: none
   auth: none
 }
@@ -14,6 +14,8 @@ query {
   startDate: 2024-08-26T15:43:18.000Z
   endDate: 2024-10-31T15:43:18.000Z
   order: num_comments
+  page: 1
+  limit: 10
 }
 
 headers {
