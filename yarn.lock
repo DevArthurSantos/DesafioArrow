@@ -910,6 +910,26 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.10.4.tgz#427d5549943a9c6fce808e39ea64dbe60d4047f1"
   integrity sha512-WJgX9nzTqknM393q1QJDJmoW28kUfEnybeTfVNcNAPnIx210RXm2DiXiHzfNPJNIUUb1tJnz/l4QGtJ30PgWmA==
 
+"@scalar/nestjs-api-reference@^0.3.166":
+  version "0.3.166"
+  resolved "https://registry.yarnpkg.com/@scalar/nestjs-api-reference/-/nestjs-api-reference-0.3.166.tgz#98c007e2d057449dbe861f1b58062b9b10ee02a5"
+  integrity sha512-jGS2otOJqsfv4ykgSnawChZC2lNggS8Gk0d1IfuAVv0fLENZt0EKFsYyVsirCmsOVu5zjgjj1+b7eLvYdyg+dg==
+  dependencies:
+    "@scalar/types" "0.0.17"
+
+"@scalar/openapi-types@0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@scalar/openapi-types/-/openapi-types-0.1.4.tgz#11b6bf90dc847f6925d3e437b834e42e84213025"
+  integrity sha512-+wRXgmqzgDnj8Dxqf4OOPMPo4or/LRd1Bsy4pnrIW0yBt8rKSdtBb+jH/aRnhgDDmKVjWxJ+KFk7WlSKvZwNTw==
+
+"@scalar/types@0.0.17":
+  version "0.0.17"
+  resolved "https://registry.yarnpkg.com/@scalar/types/-/types-0.0.17.tgz#f44c34a14ec27ab1d704d989ada8568796e96a7a"
+  integrity sha512-wUrvNnYFMULsHENX/9TP3oyECRTtZsP06mOZU+RlWg9sRtzWVTjlBCahkgUETL93J+Bz2RLFSKVgPyNN4fpIpA==
+  dependencies:
+    "@scalar/openapi-types" "0.1.4"
+    "@unhead/schema" "^1.9.5"
+
 "@sinclair/typebox@^0.27.8":
   version "0.27.8"
   resolved "https://registry.yarnpkg.com/@sinclair/typebox/-/typebox-0.27.8.tgz#6667fac16c436b5434a387a34dedb013198f6e6e"
@@ -1359,6 +1379,14 @@
   dependencies:
     "@typescript-eslint/types" "8.11.0"
     eslint-visitor-keys "^3.4.3"
+
+"@unhead/schema@^1.9.5":
+  version "1.11.10"
+  resolved "https://registry.yarnpkg.com/@unhead/schema/-/schema-1.11.10.tgz#65f1e0897cca74ccfa06b428b04e22e2610a087b"
+  integrity sha512-lXh7cm5XtFaw3gc+ZVXTSfIHXiBpAywbjtEiOsz5TR4GxOjj2rtfOAl4C3Difk1yupP6L2otYmOZdn/i8EXSJg==
+  dependencies:
+    hookable "^5.5.3"
+    zhead "^2.2.4"
 
 "@webassemblyjs/ast@1.12.1", "@webassemblyjs/ast@^1.12.1":
   version "1.12.1"
@@ -3537,6 +3565,11 @@ hexoid@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/hexoid/-/hexoid-2.0.0.tgz#fb36c740ebbf364403fa1ec0c7efd268460ec5b9"
   integrity sha512-qlspKUK7IlSQv2o+5I7yhUd7TxlOG2Vr5LTa3ve2XSNVKAL/n/u/7KLvKmFNimomDIKvZFXWHv0T12mv7rT8Aw==
+
+hookable@^5.5.3:
+  version "5.5.3"
+  resolved "https://registry.yarnpkg.com/hookable/-/hookable-5.5.3.tgz#6cfc358984a1ef991e2518cb9ed4a778bbd3215d"
+  integrity sha512-Yc+BQe8SvoXH1643Qez1zqLRmbA5rCL+sSmk6TVos0LWVfNIB7PGncdlId77WzLGSIB5KaWgTaNTs2lNVEI6VQ==
 
 html-escaper@^2.0.0:
   version "2.0.2"
@@ -6616,3 +6649,8 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
+
+zhead@^2.2.4:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/zhead/-/zhead-2.2.4.tgz#87cd1e2c3d2f465fa9f43b8db23f9716dfe6bed7"
+  integrity sha512-8F0OI5dpWIA5IGG5NHUg9staDwz/ZPxZtvGVf01j7vHqSyZ0raHY+78atOVxRqb73AotX22uV1pXt3gYSstGag==

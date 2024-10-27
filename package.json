@@ -28,6 +28,7 @@
     "@nestjs/platform-express": "^10.4.6",
     "@nestjs/schedule": "^4.1.1",
     "@nestjs/swagger": "^7.4.2",
+    "@scalar/nestjs-api-reference": "^0.3.166",
     "axios": "^1.7.7",
     "bcryptjs": "^2.4.3",
     "class-transformer": "^0.5.1",
