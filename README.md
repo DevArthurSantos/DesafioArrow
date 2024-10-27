@@ -32,6 +32,8 @@
 
 7. Testes unitarios `yarn test` or `npm run test` or `pnpm test`
 
+8. Task Scheduling, consulta a API do `Reddit` uma vez por dia, todos os dias as 12h.
+
 
 ## Vídeos
 

@@ -4,7 +4,7 @@ services:
     build: .
     restart: always
     env_file:
-      - .env
+      - .env.prod
     ports:
       - ${PORT}:${PORT}
     depends_on:
@@ -19,6 +19,5 @@ services:
       - "27017:27017"
     volumes:
       - mongo_data:/data/db
-
 volumes:
   mongo_data:
