@@ -6,6 +6,8 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "test": "jest",
+    "test:detect": "jest --detectOpenHandles",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
@@ -46,11 +48,11 @@
   "devDependencies": {
     "@nestjs/cli": "^9.5.0",
     "@nestjs/schematics": "^9.2.0",
-    "@nestjs/testing": "^9.4.3",
+    "@nestjs/testing": "^10.4.6",
     "@types/express": "^4.17.21",
     "@types/jest": "29.5.1",
     "@types/multer": "^1.4.12",
-    "@types/node": "18.16.12",
+    "@types/node": "^22.8.1",
     "@types/passport-jwt": "^3.0.13",
     "@types/supertest": "^2.0.16",
     "@types/telebot": "^1.2.7",
@@ -92,6 +94,10 @@
       "**/*.(t|j)s"
     ],
     "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "transformIgnorePatterns": [
+      "/node_modules/",
+      "C:/Users/Administrator/.vscode/extensions/wallabyjs.console-ninja-1.0.364/out/buildHook/index.js"
+    ]
   }
 }

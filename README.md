@@ -28,6 +28,9 @@
 
 6. Coleção de APIs para [Bruno API Client](https://www.usebruno.com/), localizada em `./Desafio Arrow`.
 
+7. Testes unitarios `yarn test` or `npm run test` or `pnpm test`
+
+
 ## Vídeos
 
 - [Demonstração Desafio Arrow Digital](https://youtu.be/_TlXMmUYJSo)
@@ -53,7 +56,7 @@
 
 ## 🎉 Reconhecimentos
 
-- [Desenvolvedor FullStack](https://github.com/DevArthurSantos) - Arthur Santos.
+- [Desenvolvedor](https://github.com/DevArthurSantos) - Arthur Santos.
 
 ## Licença
 [Apache 2.0](https://choosealicense.com/licenses/apache-2.0/)
