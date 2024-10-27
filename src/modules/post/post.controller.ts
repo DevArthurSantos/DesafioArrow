@@ -14,19 +14,19 @@ export class ApiController {
 
   @Get('post/')
   @Auth(UserTypeEnum.User, UserTypeEnum.Admin)
-  async getPosts(): Promise<PostDto[]> {
-    return await this.apiService.getPosts();
+  async getPosts(@Query('page') page: string, @Query('limit') limit: string, ): Promise<PostDto[]> {
+    return await this.apiService.getPosts(Number(page), Number(limit));
   }
 
   @Get('post/by-date')
   @Auth(UserTypeEnum.User, UserTypeEnum.Admin)
-  async getPostsByDate(@Query('startDate') startDate: string, @Query('endDate') endDate: string): Promise<PostDto[]> {
-    return await this.apiService.getPostsByDate(new Date(startDate), new Date(endDate));
+  async getPostsByDate(@Query('page') page: string, @Query('limit') limit: string, @Query('startDate') startDate: string, @Query('endDate') endDate: string): Promise<PostDto[]> {
+    return await this.apiService.getPostsByDate(Number(page), Number(limit), new Date(startDate), new Date(endDate));
   }
 
   @Get('post/sorted')
   @Auth(UserTypeEnum.User, UserTypeEnum.Admin)
-  async getPostsSorted(@Query('startDate') startDate: string, @Query('endDate') endDate: string, @Query('order') order: string): Promise<PostDto[]> {
-    return await this.apiService.getPostsSorted(new Date(startDate), new Date(endDate), order);
+  async getPostsSorted(@Query('page') page: string, @Query('limit') limit: string, @Query('startDate') startDate: string, @Query('endDate') endDate: string, @Query('order') order: string): Promise<PostDto[]> {
+    return await this.apiService.getPostsSorted(Number(page), Number(limit), new Date(startDate), new Date(endDate), order);
   }
 }
