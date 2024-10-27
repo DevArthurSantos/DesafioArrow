@@ -9,6 +9,8 @@
 - [Axios](https://axios-http.com/ptbr/docs/intro) - Cliente HTTP.
 - [Dotenv](https://www.npmjs.com/package/dotenv) - Módulo para variáveis de ambiente.
 - [Docker](https://www.docker.com/) - Contêiner de aplicações.
+- [Sewwger](https://swagger.io/) - Ferramenta para documentar e testar APIs RESTful.
+- [Scalar](https://www.npmjs.com/package/@scalar/nestjs-api-reference) - Scalar NestJS API Reference Plugin.
 
 ## Módulos e recursos do desafio
 
