@@ -6,7 +6,7 @@ services:
     env_file:
       - .env
     ports:
-      - ${PORT}:${PORT}
+      - ${HOST_PORT}:${PORT}
     depends_on:
       - mongodb
     command: yarn start
