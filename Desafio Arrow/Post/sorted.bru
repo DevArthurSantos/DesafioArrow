@@ -5,7 +5,7 @@ meta {
 }
 
 get {
-  url: http://localhost:3000/api/post/sorted?startDate=2024-08-26T15:43:18.000Z&endDate=2024-10-31T15:43:18.000Z&order=num_comments
+  url: http://localhost:3000/posts/sorted?startDate=2024-08-26T15:43:18.000Z&endDate=2024-10-31T15:43:18.000Z&order=num_comments&page=1&limit=10
   body: none
   auth: none
 }
@@ -14,8 +14,10 @@ query {
   startDate: 2024-08-26T15:43:18.000Z
   endDate: 2024-10-31T15:43:18.000Z
   order: num_comments
+  page: 1
+  limit: 10
 }
 
 headers {
-  Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlQHRlc3RlLmNvbSIsIm5hbWUiOiJUZXN0ZSIsInVzZXJfaWQiOiI2NzFkNTkzODFhZGEwODk1N2VmNDdjYTAiLCJpYXQiOjE3Mjk5NzY2NDcsImV4cCI6MTczMDA2MzA0N30.QDuX7-_Jn0h8jUC-8pvIhseKI3KIDVAhhtGlYUHYVDs
+  Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlM0B0ZXN0ZS5jb20iLCJuYW1lIjoiVGVzdGUiLCJ1c2VyX2lkIjoiNjcxZTZlNTdlZTVkYzYwMDA1YjFhMTliIiwiaWF0IjoxNzMwMDQ3NjU0LCJleHAiOjE3MzAxMzQwNTR9.SCHgatpX5qtND8ohYTtD5eOuk0Q5tE3wQt9OShRoR-s
 }

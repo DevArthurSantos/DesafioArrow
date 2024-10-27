@@ -1,4 +1,4 @@
-import { BadRequestException, ConflictException, HttpException, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, ConflictException, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectModel } from '@nestjs/mongoose';
 
@@ -59,7 +59,6 @@ export class AuthService {
 
     const code = Math.floor(10000 + Math.random() * 90000).toString();
 
-    // eslint-disable-next-line new-cap
     const user = new this.userModel({
       username,
       CPF,
@@ -94,7 +93,6 @@ export class AuthService {
     return { token };
   }
 
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   async activate({ email, active_code }: UserActiveDTO): Promise<void> {
     const user = await this.userModel.findOne({ email }).exec();
 

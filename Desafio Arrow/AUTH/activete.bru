@@ -1,11 +1,11 @@
 meta {
-  name: Login
+  name: activete
   type: http
-  seq: 2
+  seq: 3
 }
 
-post {
-  url: http://localhost:3000/auth/signin
+patch {
+  url: http://localhost:3000/auth/activete/
   body: json
   auth: none
 }
@@ -13,6 +13,6 @@ post {
 body:json {
   {
     "email": "teste3@teste.com",
-    "password": "senha"
+    "active_code": "95637"
   }
 }
