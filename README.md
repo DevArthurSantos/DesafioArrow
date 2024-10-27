@@ -56,14 +56,4 @@
 - [Desenvolvedor FullStack](https://github.com/DevArthurSantos) - Arthur Santos.
 
 ## Licença
-
 [Apache 2.0](https://choosealicense.com/licenses/apache-2.0/)
-
-
-
-
-
--   **Testes unitários**
--   **Testes de integração**
--   **Uso de contêiner (Docker)**
-- **Projeto rodando em algum serviço cloud**
