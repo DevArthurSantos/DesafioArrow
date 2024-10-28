@@ -5,6 +5,7 @@ import { ApiService } from './post.service';
 import { Auth } from '@app/core/decorators/validate';
 import { UserTypeEnum } from '@app/core/enums/UserTypeEnum';
 import { PostEntity } from '../reddit/schema/post.schema';
+import { PostsOrderProps } from '@app/core/types/PostsOrderProps';
 
 @ApiTags('Posts')
 @ApiBearerAuth()
@@ -29,7 +30,7 @@ export class ApiController {
   @ApiQuery({ name: 'page', required: false, type: Number, description: 'Número da página a ser retornada.' })
   @ApiQuery({ name: 'limit', required: false, type: Number, description: 'Número máximo de postagens por página.' })
   async getPostsByDate(@Query('page') page: string, @Query('limit') limit: string, @Query('startDate') startDate: string, @Query('endDate') endDate: string): Promise<PostDto[]> {
-    return await this.apiService.getPostsByDate(Number(page), Number(limit), new Date(startDate), new Date(endDate));
+    return await this.apiService.getPostsByDate(Number(page), Number(limit), startDate, endDate);
   }
 
   @Get('sorted')
@@ -40,7 +41,7 @@ export class ApiController {
   @ApiQuery({ name: 'order', required: false, type: String, description: 'Critério de ordenação das postagens.' })
   @ApiQuery({ name: 'page', required: false, type: Number, description: 'Número da página a ser retornada.' })
   @ApiQuery({ name: 'limit', required: false, type: Number, description: 'Número máximo de postagens por página.' })
-  async getPostsSorted(@Query('page') page: string, @Query('limit') limit: string, @Query('startDate') startDate: string, @Query('endDate') endDate: string, @Query('order') order: string): Promise<PostDto[]> {
-    return await this.apiService.getPostsSorted(Number(page), Number(limit), new Date(startDate), new Date(endDate), order);
+  async getPostsSorted(@Query('page') page: string, @Query('limit') limit: string, @Query('startDate') startDate: string, @Query('endDate') endDate: string, @Query('order') order: PostsOrderProps): Promise<PostDto[]> {
+    return await this.apiService.getPostsSorted(Number(page), Number(limit), startDate, endDate, order);
   }
 }
