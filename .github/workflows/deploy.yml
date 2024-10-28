@@ -1,25 +1,45 @@
-name: Push-to-EC2
+name: Deploy Docker Compose Services to EC2
 
 on:
   push:
-    branches: [developer]
+    branches:
+      - developer  # Customize conforme necessário
 
 jobs:
   deploy:
-    name: Deploy to EC2
     runs-on: ubuntu-latest
-    
+
     steps:
-      - name: Checkout the files
+      - name: Checkout code
         uses: actions/checkout@v3
         
-      - name: Copy files with SSH
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{secrets.EC2_SSH_KEY}}
-          ARGS: "-rltgoDzv --delete" 
-          SOURCE: "./"
-          REMOTE_HOST: ${{secrets.REMOTE_HOST}}
-          REMOTE_USER: ${{secrets.REMOTE_USER}}
-          TARGET: ${{secrets.TARGET_DIR}}
-          EXCLUDE: "/dist/, /node_modules/, **.env, rebuild_app.sh, watcher.sh"
+      - name: Set Environment Variables
+        run: |
+          echo "SSH_PRIVATE_KEY=${{ secrets.EC2_SSH_KEY }}" >> .env
+          echo "REMOTE_HOST=${{ secrets.REMOTE_HOST }}" >> .env
+          echo "REMOTE_USER=${{ secrets.REMOTE_USER }}" >> .env
+          echo "TARGET_DIR=${{ secrets.TARGET_DIR }}" >> .env
+
+      - name: Upload Docker Compose and .env to SSH Instance
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          source: docker-compose.yml
+          target: ${{ secrets.TARGET_DIR }}
+
+      - name: SSH into EC2 instance
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd ${{ secrets.TARGET_DIR }}
+            if ! command -v docker-compose &> /dev/null; then
+              sudo apt-get update
+              sudo apt-get install -y docker-compose
+            fi
+            sudo docker-compose down
+            sudo docker-compose up -d --build
