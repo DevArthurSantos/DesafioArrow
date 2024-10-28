@@ -49,6 +49,10 @@ export class AuthService {
   }
 
   async signUp({ email, password, CPF, TEL, username }: UserRegisterDTO): Promise<UserEntity> {
+    if (!email) {
+      throw new ConflictException('Dados invalidos!');
+    }
+
     const userExists = await this.userModel.findOne({ email }).exec();
 
     if (userExists) {
