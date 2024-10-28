@@ -1,9 +1,9 @@
-name: Deploy Docker Compose Services to EC2
+name: Push-to-EC2
 
 on:
   push:
     branches:
-      - developer  # Customize conforme necessário
+      - developer
 
 jobs:
   deploy:
@@ -11,23 +11,20 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
         
       - name: Set Environment Variables
         run: |
           echo "SSH_PRIVATE_KEY=${{ secrets.EC2_SSH_KEY }}" >> .env
-          echo "REMOTE_HOST=${{ secrets.REMOTE_HOST }}" >> .env
-          echo "REMOTE_USER=${{ secrets.REMOTE_USER }}" >> .env
-          echo "TARGET_DIR=${{ secrets.TARGET_DIR }}" >> .env
 
       - name: Upload Docker Compose and .env to SSH Instance
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.REMOTE_HOST }}
-          username: ${{ secrets.REMOTE_USER }}
-          key: ${{ secrets.EC2_SSH_KEY }}
-          source: docker-compose.yml
-          target: ${{ secrets.TARGET_DIR }}
+          host: ${{ secrets.REMOTE_HOST }} 
+          username: ${{ secrets.REMOTE_USER }}  
+          key: ${{ secrets.EC2_SSH_KEY }} 
+          source: .  
+          target: ${{ secrets.TARGET_DIR }}  
 
       - name: SSH into EC2 instance
         uses: appleboy/ssh-action@master
@@ -36,10 +33,16 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd ${{ secrets.TARGET_DIR }}
-            if ! command -v docker-compose &> /dev/null; then
-              sudo apt-get update
-              sudo apt-get install -y docker-compose
+            sudo yum update -y
+            if ! command -v docker &> /dev/null; then
+              sudo yum install -y docker
+              sudo service docker start
+              sudo usermod -a -G docker $USER  # Para permitir o uso do Docker sem sudo
             fi
+            if ! command -v docker-compose &> /dev/null; then
+              sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+              sudo chmod +x /usr/local/bin/docker-compose
+            fi
+            cd ${{ secrets.TARGET_DIR }}
             sudo docker-compose down
             sudo docker-compose up -d --build
