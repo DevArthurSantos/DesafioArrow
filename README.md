@@ -34,7 +34,7 @@
 
 8. Task Scheduling, consulta a API do `Reddit` uma vez por dia, todos os dias as 12h.
 
-9. WorkFlow/Action para fazer deploy automatico na aws ec2 disponivel em `http://54.204.190.254:3000/`.
+9. WorkFlow/Action para fazer deploy automatico na aws ec2 disponivel em [`CLIQUE-ME`](http://ec2-18-234-254-92.compute-1.amazonaws.com:3000/docs).
 
 
 ## Vídeos
