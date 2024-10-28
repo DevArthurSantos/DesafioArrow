@@ -9,7 +9,7 @@
 - [Axios](https://axios-http.com/ptbr/docs/intro) - Cliente HTTP.
 - [Dotenv](https://www.npmjs.com/package/dotenv) - Módulo para variáveis de ambiente.
 - [Docker](https://www.docker.com/) - Contêiner de aplicações.
-- [Sewwger](https://swagger.io/) - Ferramenta para documentar e testar APIs RESTful.
+- [Swagger](https://swagger.io/) - Ferramenta para documentar e testar APIs RESTful.
 - [Scalar](https://www.npmjs.com/package/@scalar/nestjs-api-reference) - Scalar NestJS API Reference Plugin.
 
 ## Módulos e recursos do desafio
@@ -34,7 +34,7 @@
 
 8. Task Scheduling, consulta a API do `Reddit` uma vez por dia, todos os dias as 12h.
 
-9. WorkFlow/Action para fazer deploy automatico na aws ec2.
+9. WorkFlow/Action para fazer deploy automatico na aws ec2 disponivel em `http://54.204.190.254:3000/`.
 
 
 ## Vídeos
