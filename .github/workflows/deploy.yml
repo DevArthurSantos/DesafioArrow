@@ -29,7 +29,7 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            sudo yum update -y
+            sudo yum update -y && sudo yum upgrade -y
             if ! command -v docker &> /dev/null; then
               sudo yum install -y docker
               sudo service docker start
@@ -39,6 +39,18 @@ jobs:
               sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
               sudo chmod +x /usr/local/bin/docker-compose
             fi
+            
+            if [ ! -f ${{ secrets.TARGET_DIR }}/.env ]; then
+              echo "Criando arquivo .env"
+              echo "JWT_SECRET='${{ secrets.JWT_SECRET }}'" | sudo tee ${{ secrets.TARGET_DIR }}/.env
+              echo "MONGODB_URL='${{ secrets.MONGODB_URL }}'" | sudo tee -a ${{ secrets.TARGET_DIR }}/.env
+              echo "PORT=${{ secrets.PORT }}" | sudo tee -a ${{ secrets.TARGET_DIR }}/.env
+              echo "CRON_EXPRESSION='${{ secrets.CRON_EXPRESSION }}'" | sudo tee -a ${{ secrets.TARGET_DIR }}/.env
+            else
+              echo "Arquivo .env já existe. Não será criado."
+            fi
+
             cd ${{ secrets.TARGET_DIR }}
             sudo docker-compose down
+            sudo docker system prune -a --volumes -f
             sudo docker-compose up -d --build
